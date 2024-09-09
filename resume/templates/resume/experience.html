@@ -1,0 +1,54 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% block body %}
+<div class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Experience</h2>
+    {% for experience in experiences %}
+    <section class="mb-8">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-700"><b>{{ forloop.counter }}. {{ experience.role }}</b></h3>
+        <div class="flex items-center mb-4">
+            <b class="font-bold px-4">Company:</b>
+            <a class="text-indigo-600 hover:text-indigo-800 font-bold" href="https://explorezoco.com/" target="_blank" rel="noopener noreferrer"><b>{{ experience.company_name }}</b></a>
+        </div>
+        <ul class="list-disc list-inside pl-6 mb-4 text-gray-600">
+            {{ experience.task }}
+        </ul>
+        <b class="text-gray-700 text-semibold mx-auto mb-2">Certificate of Completion:</b>
+        <img src="{{experience.certificates.url}}" alt="Certificate for {{ experience.role }}" class="w-full rounded-lg shadow-md">
+        
+        <hr class="my-6 border-gray-300">
+    </section>
+    {% endfor %}
+</div>
+<footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="flex flex-col items-center mb-12">
+            <div class="text-center">
+                <h2 class="text-xl font-semibold mb-4 text-gray-300">Kindly Visit the following links for more details:</h2>
+                <ul class="list-none flex flex-row justify-center space-x-8 px-2 py-4">
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'resume' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">HomePage</a>
+                        <img src="{% static 'resume/images/homepage.png' %}" alt="Experience Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'skills' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Skills</a>
+                        <img src="{% static 'resume/images/skills.png' %}" alt="Skills Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'education' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Education</a>
+                        <img src="{% static 'resume/images/education.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'projects' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Projects</a>
+                        <img src="{% static 'resume/images/projects.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'certificates' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Achievements</a>
+                        <img src="{% static 'resume/images/certificate.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</footer>
+{% endblock %}

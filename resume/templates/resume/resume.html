@@ -1,0 +1,63 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% block body %}
+<div class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
+    {% for detail in details %}
+    <header class="text-center mb-12">
+        <h1 class="text-5xl font-extrabold text-gray-800">{{ detail.name }}</h1>
+        <p class="text-2xl font-medium text-gray-600 mt-2">{{ detail.role }}</p>
+        <div class="mt-6 space-y-2">
+            <p class="text-lg"><strong>Email:</strong> <a href="mailto:{{ detail.email }}" class="text-blue-600 font-serif hover:underline">{{ detail.email }}</a></p>
+            <p class="text-lg"><strong>Phone:</strong> <a href="tel:{{ detail.phone }}" class="text-blue-600 font-serif hover:underline">{{ detail.phone }}</a></p>
+            <p class="text-lg"><strong>LinkedIn:</strong> <a href="{{ detail.linkedin_url }}" class="text-blue-600 font-serif hover:underline">My LinkedIn</a></p>
+            <p class="text-lg"><strong>GitHub:</strong> <a href="{{ detail.github_url }}" class="text-blue-600 font-serif hover:underline">My GitHub</a></p>
+        </div>
+    </header>
+    <section class="mb-12 flex flex-col lg:flex-row lg:items-center">
+        <div class="lg:w-3/4">
+            <h2 class="text-4xl font-semibold mb-4 text-gray-700">Objective 🎯</h2>
+            <p class="text-lg leading-relaxed text-gray-600">
+                {{ detail.objective }}
+            </p>
+        </div>
+        <div class="lg:w-1/4 mt-6 lg:mt-0 lg:pl-6">
+            <img src="{{ detail.image.url }}" alt="{{ detail.name }}" class="shadow-lg rounded-lg w-full h-auto object-cover">
+        </div>
+    </section>
+    {% endfor %}
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="flex flex-col items-center mb-12">
+            <div class="text-center">
+                <h2 class="text-xl font-semibold mb-4 text-gray-300">Kindly Visit the following links for more details:</h2>
+                <ul class="list-none flex flex-row justify-center space-x-8 px-2 py-4">
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'skills' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Skills</a>
+                        <img src="{% static 'resume/images/skills.png' %}" alt="Skills Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'education' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Education</a>
+                        <img src="{% static 'resume/images/education.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'projects' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Projects</a>
+                        <img src="{% static 'resume/images/projects.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'experience' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Experience</a>
+                        <img src="{% static 'resume/images/experience.png' %}" alt="Experience Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'certificates' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Achievements</a>
+                        <img src="{% static 'resume/images/certificate.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</footer>
+
+{% endblock %}

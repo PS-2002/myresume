@@ -1,0 +1,56 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% block body %}
+<div class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Projects</h2>
+    {% for project in projects %}
+    <section class="mb-8">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-700 flex items-center">
+            <svg class="w-6 h-6 mr-2 flex text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <b>{{ forloop.counter }}. {{ project.title }} ({{ project.skills_used }})</b>
+        </h3>
+        <b class="text-gray-700 flex-row text-semibold mx-auto px-6 mb-2">Description:</b>
+        <p class="pl-6 mb-4 text-gray-600">{{ project.description }}</p>
+        <div class="flex items-center mb-2">
+            <b class="font-bold px-6">Source Code:</b>
+            <a class="text-indigo-600 hover:text-indigo-800 font-bold flex items-center" href="{{ project.link }}" target="_blank" rel="noopener noreferrer">
+                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <b>Repo</b>
+            </a>
+        </div>
+    </section>
+    </hr>
+    {% endfor %}
+</div>
+<footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="flex flex-col items-center mb-12">
+            <div class="text-center">
+                <h2 class="text-xl font-semibold mb-4 text-gray-300">Kindly Visit the following links for more details:</h2>
+                <ul class="list-none flex flex-row justify-center space-x-8 px-2 py-4">
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'resume' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">HomePage</a>
+                        <img src="{% static 'resume/images/homepage.png' %}" alt="Experience Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'skills' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Skills</a>
+                        <img src="{% static 'resume/images/skills.png' %}" alt="Skills Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'education' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Education</a>
+                        <img src="{% static 'resume/images/education.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'experience' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Experience</a>
+                        <img src="{% static 'resume/images/experience.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'certificates' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Achievements</a>
+                        <img src="{% static 'resume/images/certificate.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</footer>
+{% endblock %}

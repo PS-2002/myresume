@@ -1,0 +1,48 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% block body %}
+<div class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Achievements</h2>
+    {% for certificate in certificates %}
+    <section class="mb-8">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-700"><b>{{ forloop.counter }}. {{ certificate.name }}</b></h3>
+        
+        
+        <img src="{{certificate.certificate_img.url}}" alt="Certificate for {{ certificate.name }}" class="w-full rounded-lg shadow-md">
+        
+        <hr class="my-6 border-gray-300">
+    </section>
+    {% endfor %}
+</div>
+<footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="flex flex-col items-center mb-12">
+            <div class="text-center">
+                <h2 class="text-xl font-semibold mb-4 text-gray-300">Kindly Visit the following links for more details:</h2>
+                <ul class="list-none flex flex-row justify-center space-x-8 px-2 py-4">
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'resume' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">HomePage</a>
+                        <img src="{% static 'resume/images/homepage.png' %}" alt="Experience Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'skills' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Skills</a>
+                        <img src="{% static 'resume/images/skills.png' %}" alt="Skills Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'education' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Education</a>
+                        <img src="{% static 'resume/images/education.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'projects' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Projects</a>
+                        <img src="{% static 'resume/images/projects.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                    <li class="flex px-4 items-center">
+                        <a href="{% url 'experience' %}" class="text-2xl font-serif font-semibold text-blue-400 hover:text-blue-300 hover:underline text-shadow-md">Experience</a>
+                        <img src="{% static 'resume/images/experience.png' %}" alt="Education Icon" class="ml-2 w-6 h-6">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</footer>
+{% endblock %}

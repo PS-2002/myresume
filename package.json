@@ -1,0 +1,17 @@
+{
+  "name": "myresume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwind build resume/static/resume/tw.css -o resume/static/resume/styles.css",
+    "build2": "tailwind build owner/static/owner/tw.css -o owner/static/owner/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "tailwindcss": "^2.2.16"
+  }
+}

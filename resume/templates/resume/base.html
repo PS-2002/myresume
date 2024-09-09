@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'resume/styles.css' %}">
+    </head>
+    <body class="bg-gray-200 text-gray-1000">
+       <nav class="shadow-2xl h-24">
+        <div class="flex px-4 mx-auto justify-between">
+            <div>
+                <a class="flex flex-row" href="{% url 'resume' %}">
+                    <img class="h-10 w-8 mr-2" src="{% static 'resume/images/resume.png' %}" alt="">
+                    <span><b class="font-bold text-4xl text-gray-700">Cirruculum Vitae</b></span>
+                </a>
+            </div>
+            <div class="flex space-x-1">
+                <a class="py-4 px-4 text-gray-500 font-bold h-4" href="https://github.com/PS-2002">
+                    <img class="h-10" src="{% static 'resume/images/github.png' %}" alt="">
+                </a>
+                <a class="py-4 px-4 text-gray-500 font-semibold" href="https://www.linkedin.com/in/pravesh-sharma-51229b257">
+                    <img class="h-10" src="{% static 'resume/images/linkedin.png' %}" alt="">
+                </a>
+                <a class="py-4 px-4 text-gray-500 flex flex-col font-bold h-4" href="{% url 'login' %}">
+                    <img class="h-12 w-16" src="{% static 'resume/images/admin.png' %}" alt="">
+                    <span><b class="font-bold text-xl text-gray-700">Pravesh</b></span>
+                </a>
+            </div>
+        </div>
+       </nav>
+    {% block body %}
+    {% endblock %}
+</html>
+
+        
+
+        
+
+        
+
+        
+
+
